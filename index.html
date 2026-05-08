@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <title>iurigenart20260507 — local preview</title>
+    <!-- p5.js v1.11.11 — served via jsDelivr (cdnjs hasn't republished 1.11.11 yet).
+         Local-only harness; ArtBlocks injects p5.js itself from its registry. -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.11/lib/p5.min.js"></script>
+    <script>
+      // Local-only stub of the tokenData object that ArtBlocks injects in production.
+      // Pass ?hash=0x... in the URL to lock a specific hash for reproducibility checks.
+      // Otherwise generate a fresh 64-char hex hash on page load (using crypto, NOT
+      // exposed to the sketch — the sketch sees only the resulting hash string).
+      (function () {
+        const params = new URLSearchParams(window.location.search);
+        let hash = params.get("hash");
+        if (!hash) {
+          const bytes = new Uint8Array(32);
+          window.crypto.getRandomValues(bytes);
+          hash =
+            "0x" +
+            Array.from(bytes, (b) => b.toString(16).padStart(2, "0")).join("");
+        } else if (!hash.startsWith("0x")) {
+          hash = "0x" + hash;
+        }
+        window.tokenData = {
+          tokenId: params.get("tokenId") || "0",
+          hash,
+        };
+      })();
+    </script>
+    <style>
+      html { height: 100%; }
+      body { min-height: 100%; margin: 0; padding: 0; background: #000; }
+      canvas {
+        padding: 0;
+        margin: auto;
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0; left: 0; right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="lib/random.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
