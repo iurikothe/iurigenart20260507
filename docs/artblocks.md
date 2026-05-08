@@ -58,6 +58,18 @@ The non-negotiables for any sketch shipped to ArtBlocks:
 
 Append-only — newest at top.
 
+- **2026-05-07** — Public Hasura at `https://data.artblocks.io/v1/graphql` is
+  open (no API key). The `projects_metadata` table exposes the full on-chain
+  `script` plus `script_type_and_version`, `aspect_ratio`, `description`,
+  `invocations`, status flags, etc. `contract_address` filter must be
+  **lower-case**. Note: `script_type_and_version` of `js@n/a` is a valid
+  ArtBlocks option meaning "no library" — used by Kim Asendorf's *Cargo*.
+  See `docs/refs/README.md` for the full retrieval methodology.
+- **2026-05-07** — Generator URLs (`generator.artblocks.io/{chain}/{contract}/{tokenId}`)
+  are HTML shells; the actual JS is assembled on-chain (Scripty.sol) and
+  injected as a data URI inside an iframe. WebFetch/`curl` of the parent
+  URL won't return source — go via Hasura, the MCP, direct contract reads,
+  or browser DevTools instead.
 - **2026-05-07** — Project initialized with p5.js v1.11.11, sfc32 PRNG seeded
   from `tokenData.hash`, single-file `sketch.js` and a local `index.html`
   harness that simulates `tokenData` (URL `?hash=0x...` to lock a hash).
