@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "artblocks-mcp": {
+      "type": "http",
+      "url": "https://mcp.artblocks.io/mcp"
+    }
+  }
+}

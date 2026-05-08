@@ -42,6 +42,18 @@ The non-negotiables for any sketch shipped to ArtBlocks:
 - Starter template repo: https://github.com/ArtBlocks/artblocks-starter-template
 - Splits dashboard (royalties): https://app.splits.org
 
+### ArtBlocks MCP server
+- Quick-start: https://docs.artblocks.io/developer/mcp-server/quick-start/
+- Quick-start (source): https://github.com/ArtBlocks/artblocks-docs/blob/main/developer/mcp-server/quick-start.md
+- Endpoint: `https://mcp.artblocks.io/mcp`
+- 21 tools spanning project discovery, portfolios, mint eligibility, transaction
+  building, and script scaffolding across Ethereum / Arbitrum / Base.
+- Auth: OAuth 2.1 — browser sign-in on first use.
+- Wired into this repo at **project scope** in `.mcp.json` (so anyone cloning
+  the repo gets the MCP config; each user OAuths themselves once via `/mcp`).
+- Optional companion: `npx skills add ArtBlocks/skills` (uses asdf-managed
+  Node — see `.tool-versions`). Add `-g` for global skills.
+
 ## Learnings log
 
 Append-only — newest at top.
@@ -49,6 +61,10 @@ Append-only — newest at top.
 - **2026-05-07** — Project initialized with p5.js v1.11.11, sfc32 PRNG seeded
   from `tokenData.hash`, single-file `sketch.js` and a local `index.html`
   harness that simulates `tokenData` (URL `?hash=0x...` to lock a hash).
+- **2026-05-07** — Wired the ArtBlocks **MCP server** into this repo at
+  project scope (`.mcp.json`). 21 tools for discovery, mint eligibility,
+  transaction building, script scaffolding across ETH / Arbitrum / Base.
+  OAuth on first use via `/mcp` in Claude Code.
 - **2026-05-07** — Local harness loads p5.js from **jsDelivr**, not cdnjs.
   cdnjs hasn't republished 1.11.11 yet (their latest 1.11.x is 1.11.10);
   jsDelivr mirrors npm directly. Only matters for local dev — ArtBlocks
